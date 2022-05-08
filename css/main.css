@@ -1,9 +1,12 @@
+h1.center {
+    text-align: center;
+}
+
 .center {
-    position: absolute;
-    left: 50%;
+    margin-left: 50%!important;
     transform: translateX(-50%);
 }
 
-div .row {
+div.row {
     margin: 50px 0px;
 }
