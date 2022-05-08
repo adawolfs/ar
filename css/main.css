@@ -1,0 +1,9 @@
+.center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+div .row {
+    margin: 50px 0px;
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuateGeeks AR</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <script src="js/alpinejs/main.js" defer></script>
+    <script src="js/upload/main.js"></script>
+</head>
+<body>
+    <div x-data="guategeeks" class="container">
+        <div class="row">
+            <div class="columns">
+                <h1>GuateGeeks AR</h1>               
+            </div>
+        </div>
+        <div class="row">
+            <div class="five columns">
+                <label for="emailInput">Your email</label>
+                <input class="u-full-width" type="email" placeholder="geek@guategeeks.com" id="emailInput">
+            </div>
+            <div class="five columns">
+                <label for="modelInput">Selecciona tu Archivo</label>
+                <input type="file" name="model" id="modelInput">
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="columns">
+                <button x-on:click="uploadElement()" class="center button-primary u-max-full-width" >Subir Objeto</button>
+
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
