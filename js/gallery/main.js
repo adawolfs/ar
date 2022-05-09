@@ -1,6 +1,9 @@
+const uploadPath = `${config.backend}/upload/`;
+const uploadsPath = `${config.backend}/uploads/`;
 document.addEventListener('alpine:init', () => {
     Alpine.data('ARgallery', () => ({
-        uploadedFiles: ['tesx'],
+        uploadsPath: uploadsPath,
+        uploadedFiles: [''],
         openModel(file) {
             console.log(file)
             window.location.href = `/model.html?open=${file}`
@@ -9,7 +12,7 @@ document.addEventListener('alpine:init', () => {
             const requestOptions = {
                 method: 'GET',
             };
-            fetch("http://127.0.0.1:3000/upload/", requestOptions)
+            fetch(uploadPath, requestOptions)
             .then(response => response.json())
             .then(result => {
                 this.uploadedFiles = result.uploads

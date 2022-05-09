@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/skeleton.css">
     <script src="js/alpinejs/main.js" defer></script>
+    <script src="js/config.js"></script>
     <script src="js/gallery/main.js"></script>
 </head>
 <body>
@@ -20,7 +21,7 @@
         <div x-init="getUploads()" class="row">
         <template x-for="file in uploadedFiles">
             <div class="columns three" x-on:click="openModel(file)">
-                <img x-bind:src="'http://127.0.0.1:3000/uploads/' + file + '/thumbnail.png'" alt="img">
+                <img x-bind:src="uploadsPath + file + '/thumbnail.png'" alt="img">
                 <div>
                     <h2 class="center" x-text="file"></h2>
                 </div>
