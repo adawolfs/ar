@@ -14,7 +14,7 @@ jobs:
       env:
         CONFIG_JS : ${{secrets.CONFIG_JS}}
     - name: Deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@4.1.4
+      uses: JamesIves/github-pages-deploy-action@4.3.3
       with:
         branch: gh-pages # The branch the action should deploy to.
         folder: . # The folder the action should deploy.
