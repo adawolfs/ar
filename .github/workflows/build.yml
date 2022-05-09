@@ -9,7 +9,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: create config.js
       run: |
-          echo $CONFIG_JS >> ./js/config.js
+          echo $CONFIG_JS
       shell: bash
       env:
         CONFIG_JS : ${{secrets.CONFIG_JS}}
