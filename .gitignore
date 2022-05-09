@@ -1,6 +1,7 @@
 server
 vue
 
+config.js
 # Logs
 logs
 *.log

@@ -1,4 +1,7 @@
-const uploadsPath = 'http://127.0.0.1:3000/uploads'
+
+const uploadsPath = `${config.backend}/uploads`;
+
+console.log(uploadsPath)
 
 window.addEventListener('DOMContentLoaded', (event) => {
     const params = new URLSearchParams(window.location.search)

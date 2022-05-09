@@ -1,3 +1,5 @@
+const uploadPath = `${config.backend}/upload/`;
+
 document.addEventListener('alpine:init', () => {
     Alpine.data('guategeeks', () => ({
         uploadElement() {
@@ -32,7 +34,7 @@ let loadElement = () => {
     redirect: 'follow'
     };
 
-    fetch("http://127.0.0.1:3000/upload/", requestOptions)
+    fetch(uploadPath, requestOptions)
     .then(response => response.text())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
