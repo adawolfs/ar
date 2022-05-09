@@ -1,7 +1,7 @@
 push-guategeeks:
-	git branch -D GuateGeeksAr
-	git checkout --orphan GuateGeeksAr
+	git branch -D GuateGeeksAR
+	git checkout --orphan GuateGeeksAR
 	git add .
-	git commit -m "GuateGeeksAr"
-	git push -u guategeeks +ar:main
+	git commit -m "GuateGeeksAR"
+	git push -u guategeeks +GuateGeeksAR:main
 	git checkout main
