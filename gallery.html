@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GuateGeeks AR</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <script src="js/alpinejs/main.js" defer></script>
+    <script src="js/gallery/main.js"></script>
+</head>
+<body>
+    <div x-data="ARgallery" class="container">
+        <div class="row">
+            <h1 class="center">
+                Galeria de Modelos 3D
+            </h1>
+        </div>
+        <div x-init="getUploads()" class="row">
+        <template x-for="file in uploadedFiles">
+            <div class="columns three" x-on:click="openModel(file)">
+                <img x-bind:src="'http://127.0.0.1:3000/uploads/' + file + '/thumbnail.png'" alt="img">
+                <div>
+                    <h2 class="center" x-text="file"></h2>
+                </div>
+            </div>
+        </template>
+        </div>
+
+    </div>
+    
+</body>
+</html>
