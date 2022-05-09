@@ -18,9 +18,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
 let loadElement = () => {
 
     let modelInput = document.getElementById('modelInput')
+    let thumbnailInput = document.getElementById('thumbnailInput')
+    let fileNameInput = document.getElementById('fileNameInput')
     
     var formdata = new FormData();
     formdata.append("model", modelInput.files[0]);
+    formdata.append("preview", thumbnailInput.files[0]);
+    formdata.append("name", fileNameInput.value);
 
     var requestOptions = {
     method: 'POST',
@@ -28,7 +32,7 @@ let loadElement = () => {
     redirect: 'follow'
     };
 
-    fetch("http://127.0.0.1:3000/upload/blob", requestOptions)
+    fetch("http://127.0.0.1:3000/upload/", requestOptions)
     .then(response => response.text())
     .then(result => console.log(result))
     .catch(error => console.log('error', error));
