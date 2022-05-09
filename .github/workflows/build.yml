@@ -13,9 +13,15 @@ jobs:
       shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
       env:
         CONFIG_JS : ${{secrets.CONFIG_JS}}
+    - name: create build
+      run: |
+          mkdir build && mv *.html build && mv js css assets -t build
+      shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+      env:
+        CONFIG_JS : ${{secrets.CONFIG_JS}}
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@v4.3.3
       with:
         branch: gh-pages # The branch the action should deploy to.
-        folder: ./* # The folder the action should deploy.
+        folder: build # The folder the action should deploy.
         clean: true # Clean destination before deploy files
