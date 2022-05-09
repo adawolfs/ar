@@ -6,7 +6,7 @@ document.addEventListener('alpine:init', () => {
         uploadedFiles: [''],
         openModel(file) {
             console.log(file)
-            window.location.href = `/model.html?open=${file}`
+            window.location.href = `model.html?open=${file}`
         },
         getUploads() {
             const requestOptions = {
