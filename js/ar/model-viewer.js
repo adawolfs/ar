@@ -9,7 +9,8 @@ AFRAME.registerComponent('model-viewer', {
       var el = this.el;
   
       el.setAttribute('renderer', {colorManagement: true});
-      el.setAttribute('cursor', {rayOrigin: 'mouse', fuse: false});
+      el.setAttribute('cursor', {rayOrigin: 'mouse', fuse: false, raycaster: 'objects: .raycastable'});
+
       el.setAttribute('webxr', {optionalFeatures: 'hit-test, local-floor'});
       el.setAttribute('raycaster', {objects: '.raycastable'});
   
@@ -134,6 +135,7 @@ AFRAME.registerComponent('model-viewer', {
   
     update: function () {
       if (!this.data.gltfModel) { return; }
+      // this.modelEl.setAttribute('animation-mixer', '');
       this.modelEl.setAttribute('gltf-model', this.data.gltfModel);
     },
   
@@ -148,6 +150,13 @@ AFRAME.registerComponent('model-viewer', {
       var cameraEl = this.cameraEl = document.createElement('a-entity');
       var rightHandEl = this.rightHandEl = document.createElement('a-entity');
       var leftHandEl = this.leftHandEl = document.createElement('a-entity');
+
+      var cursor = this.laserControls = document.createElement('a-entity');
+      
+      cursor.setAttribute('cursor', 'fuse: true; fuseTimeout: 500');
+      cursor.setAttribute('position', '0 0 -1');
+      cursor.setAttribute('geometry', 'primitive: ring; radiusInner: 0.02; radiusOuter: 0.03');
+      cursor.setAttribute('material', 'color: black; shader: flat');
   
       cameraEl.setAttribute('camera', {fov: 60});
       cameraEl.setAttribute('look-controls', {
@@ -165,7 +174,8 @@ AFRAME.registerComponent('model-viewer', {
       leftHandEl.setAttribute('laser-controls', {hand: 'right'});
       leftHandEl.setAttribute('raycaster', {objects: '.raycastable'});
       leftHandEl.setAttribute('line', {color: '#118A7E'});
-  
+      
+      // cameraEl.appendChild(cursor);
       cameraRigEl.appendChild(cameraEl);
       cameraRigEl.appendChild(rightHandEl);
       cameraRigEl.appendChild(leftHandEl);
@@ -195,6 +205,8 @@ AFRAME.registerComponent('model-viewer', {
       var modelPivotEl = this.modelPivotEl = document.createElement('a-entity');
       // This is our glTF model entity.
       var modelEl = this.modelEl = document.createElement('a-entity');
+      // The animation list.
+      var animationsEl = this.animationsEl = document.createElement('a-entity');
       // Shadow blurb for 2D and VR modes. Scaled to match the size of the model.
       var shadowEl = this.shadowEl = document.createElement('a-entity');
       // Real time shadow only used in AR mode.
@@ -233,10 +245,16 @@ AFRAME.registerComponent('model-viewer', {
       this.containerEl.appendChild(laserHitPanelEl);
   
       modelEl.setAttribute('rotation', '0 -30 0');
-      modelEl.setAttribute('animation-mixer', '');
       modelEl.setAttribute('shadow', 'cast: true; receive: false');
-  
+
       modelPivotEl.appendChild(modelEl);
+
+      animationsEl.id = 'menu';
+      // animationsEl.setAttribute('hide-on-enter-ar', '');
+      animationsEl.setAttribute('highlight', '');
+      animationsEl.setAttribute('visible', 'false');
+
+      this.containerEl.appendChild(animationsEl);
   
       shadowEl.setAttribute('rotation', '-90 -30 0');
       shadowEl.setAttribute('geometry', 'primitive: plane; width: 1.0; height: 1.0');
@@ -277,7 +295,10 @@ AFRAME.registerComponent('model-viewer', {
   
       this.containerEl.appendChild(lightEl);
       this.containerEl.appendChild(modelPivotEl);
-  
+      
+      backgroundEl = document.createElement('a-entity');
+      backgroundEl.id = 'background';
+      this.el.appendChild(backgroundEl)
       this.el.appendChild(containerEl);
       this.el.appendChild(reticleEl);
     },
@@ -470,7 +491,32 @@ AFRAME.registerComponent('model-viewer', {
     },
   
     onModelLoaded: function () {
+      this.addAnimations();
       this.centerAndScaleModel();
+    },
+
+    addAnimations: function () {
+      const gltfObject = this.modelEl.getObject3D('mesh');
+      let y = 0;
+      console.log(gltfObject)
+      gltfObject.animations.map(animation => {
+        console.log(animation.name)
+        var animationEl = document.createElement('a-entity');
+        animationEl.setAttribute('mixin', 'frame');
+        animationEl.setAttribute('class', 'raycastable menu-button');
+        animationEl.setAttribute('text', `value: ${animation.name} ; width: 2; align: center;`);
+        animationEl.object3D.position.x = 0;
+        animationEl.object3D.position.y = y-=0.25;
+        animationEl.object3D.position.z = 0;
+        animationEl.object3D.visible = true;
+        var animationTextEl = document.createElement('a-entity');
+        animationEl.appendChild(animationTextEl);
+        animationEl.addEventListener('click', () => {
+          console.log(animation.name)
+          this.modelEl.setAttribute('animation-mixer', `clip: ${animation.name}`);
+        })
+        this.animationsEl.appendChild(animationEl);
+      })
     },
   
     centerAndScaleModel: function () {
@@ -481,7 +527,12 @@ AFRAME.registerComponent('model-viewer', {
       var modelEl = this.modelEl;
       var shadowEl = this.shadowEl;
       var titleEl = this.titleEl;
+      var animationsEl = this.animationsEl;
       var gltfObject = modelEl.getObject3D('mesh');
+
+      modelEl.addEventListener('mousedown', () => {
+        console.log(gltfObject.animations)
+      })
   
       // Reset position and scales.
       modelEl.object3D.position.set(0, 0, 0);
@@ -516,6 +567,11 @@ AFRAME.registerComponent('model-viewer', {
       titleEl.object3D.position.y = size.y + 0.5;
       titleEl.object3D.position.z = -2;
       titleEl.object3D.visible = true;
+
+      animationsEl.object3D.position.x = 2.2 - center.x;
+      animationsEl.object3D.position.y = size.y + 0.5;
+      animationsEl.object3D.position.z = -2;
+      animationsEl.object3D.visible = true;
   
       modelEl.object3D.position.x = -center.x;
       modelEl.object3D.position.y = -center.y;
