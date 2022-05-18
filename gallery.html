@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +11,11 @@
     <script src="js/alpinejs/main.js" defer></script>
     <script src="js/config.js"></script>
     <script src="js/gallery/main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Biryani:wght@600&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div x-data="ARgallery" class="container">
         <div class="row">
@@ -19,17 +24,18 @@
             </h1>
         </div>
         <div x-init="getUploads()" class="row">
-        <template x-for="file in uploadedFiles">
-            <div class="columns three" x-on:click="openModel(file)">
-                <img x-bind:src="uploadsPath + file + '/thumbnail.png'" alt="img">
-                <div>
-                    <h2 class="center" x-text="file"></h2>
+            <template x-for="file in uploadedFiles">
+                <div class="columns three" x-on:click="openModel(file)">
+                    <img x-bind:src="uploadsPath + file + '/thumbnail.png'" alt="img">
+                    <div>
+                        <h2 class="center" x-text="file"></h2>
+                    </div>
                 </div>
-            </div>
-        </template>
+            </template>
         </div>
 
     </div>
-    
+
 </body>
+
 </html>

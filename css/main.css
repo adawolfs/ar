@@ -1,3 +1,9 @@
+body {
+    background-color: #2B2B2B;
+    color: #FFFFFF !important;
+    font-family: 'Biryani', sans-serif !important;
+}
+
 h1.center {
     text-align: center;
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +11,13 @@
     <script src="js/alpinejs/main.js" defer></script>
     <script src="js/config.js"></script>
     <script src="js/upload/main.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Biryani:wght@200;300;400;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <div x-data="guategeeks" class="container">
         <div class="row">
@@ -38,20 +45,45 @@
         <div class="row">
             <div class="five columns">
                 <label for="thumbnailInput">Selecciona la imagen de preview:</label>
+                <p class="light-text">
+                    Agrega aqui un archivo *.png, *.jpg o *.jpeg con una resolución de 1024x1024
+                </p>
                 <input type="file" name="preview" accept="image/png, image/gif, image/jpeg" id="thumbnailInput">
             </div>
             <div class="five columns">
                 <label for="modelInput">Selecciona el modelo 3D:</label>
+                <p>
+                    Agrega aqui un archivo *.fbx, *.obj o *.gltf
+                </p>
+                <p>
+                    Soporte para zip:
+                <ul>
+                    <li>
+                        file.zip:
+                    </li>
+                    <li>
+                        <ul>
+                            <li>
+                                scene.glb
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                </p>
+
+
                 <input type="file" name="model" id="modelInput">
             </div>
         </div>
         <div class="row">
             <div class="columns">
-                <button x-on:click="uploadElement()" class="center button-primary u-max-full-width" >Subir Objeto</button>
+                <button x-on:click="uploadElement()" class="center button-primary u-max-full-width">Subir
+                    Objeto</button>
 
             </div>
         </div>
     </div>
-    
+
 </body>
+
 </html>
