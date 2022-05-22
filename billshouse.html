@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Carga Modelos</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Biryani:wght@600&display=swap" rel="stylesheet">
+    <script src="js/billshouse.js"></script>
+</head>
+
+<body>
+    <a-scene id="aframe-scene" renderer="colorManagement: true;" >
+        <a-assets>
+            <a-asset-item id="bill" src="assets/models/bill/billshouse.gltf"
+                response-type="arraybuffer" crossorigin="anonymous"></a-asset-item>
+        </a-assets>
+
+        <a-entity id="bill" disable-culling gltf-model="#bill" position="0 0 0" scale="0.5 0.5 0.5" rotation="0 0 0" ></a-entity>
+        <a-entity id="camera" camera="fov: 50" look-controls wasd-controls bill-house-camera position="-7 0 3"></a-entity>
+        <!-- <a-entity light="type: point; intensity: 0; distance: 50; decay: 2"
+          position="0 0 0"></a-entity> -->
+    </a-scene>
+</body>
+
+</html>
