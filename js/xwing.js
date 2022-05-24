@@ -22,7 +22,7 @@ AFRAME.registerComponent('emissive-material', {
 
 AFRAME.registerComponent('click-to-shoot', {
     init: function () {
-        let _audio = new Audio('../assets/sounds/laser.wav');
+        let _audio = new Audio('assets/sounds/laser.wav');
         let _busy = false;
         document.body.addEventListener('mousedown', () => {
             _audio.play();    
