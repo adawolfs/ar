@@ -11,12 +11,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://supermedium.github.io/aframe-super-shooter-kit/dist/aframe-super-shooter-kit.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Biryani:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis/.com/css2?family=Biryani:wght@600&display=swap" rel="stylesheet">
     <script src="https://mixedreality.mozilla.org/ammo.js/builds/ammo.wasm.js"></script>
     <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="https://unpkg.com/aframe-fps-look-controls-component/dist/aframe-fps-look-controls-component.min.js"></script>
+    <script src="https://unpkg.com/aframe-mesh-particles-component@^0.4.0/aframe-mesh-particles-component.js"></script>
     <script src="js/gltf.js"></script>
     <script src="js/xwing.js"></script>
-    <script src="https://unpkg.com/aframe-mesh-particles-component@^0.4.0/aframe-mesh-particles-component.js"></script> 
 </head>
 
 <body>
@@ -26,21 +27,30 @@
                 crossorigin="anonymous"></a-asset-item>
                 <a-asset-item id="asteroid" src="assets/models/asteroid/scene.gltf" response-type="arraybuffer"></a-asset-item>
         </a-assets>
-        <a-box color="red" position="0 0 -5" mesh-particles="radialVelocity: 1.2"></a-box>
+        <a-box color="white" position="0 0 -5" mesh-particles="spawnRate:5000; radialType: sphere; radialVelocity: 1.2; radialPosition: 10; scale: .01...03;"></a-box>
         <!-- <a-box color="red" metalness="1" roughness="0.5" position="0 0 -4"></a-box> -->
         <!-- <a-entity id="bulletTemplate" bullet="name: normal; damagePoints: 1.0; speed: 25da.0; poolSize: 20" light="type: point; color:green; intensity: 0.5; distance: 50; decay: 2" position="0 0 0"></a-entity> -->
-        <a-entity gltf-model="#asteroid" asteroid target="healthPoints: 1" hit-handler position="0 0 -10" scale="0.5 0.5 0.5" rotation="0 0 0" physics="mass: 1; shape: box; friction: 0.5; restitution: 0.5;"></a-entity>
-        <a-entity mars-camera camera="active: true" look-controls="pointerLockEnabled: false"
+        <a-entity gltf-model="#asteroid" asteroid target="healthPoints: 1" hit-handler position="-10 1 -20" scale="0.5 0.5 0.5" rotation="0 0 0" physics="mass: 1; shape: box; friction: 0.5; restitution: 0.5;"></a-entity>
+        <a-entity gltf-model="#asteroid" asteroid target="healthPoints: 1" hit-handler position="3 4 -20" scale="0.5 0.5 0.5" rotation="0 0 0" physics="mass: 1; shape: box; friction: 0.5; restitution: 0.5;"></a-entity>
+        <a-entity gltf-model="#asteroid" asteroid target="healthPoints: 1" hit-handler position="-15 -2 -20" scale="0.5 0.5 0.5" rotation="0 0 0" physics="mass: 1; shape: box; friction: 0.5; restitution: 0.5;"></a-entity>
+        <a-entity gltf-model="#asteroid" asteroid target="healthPoints: 1" hit-handler position="5 3 -20" scale="0.5 0.5 0.5" rotation="0 0 0" physics="mass: 1; shape: box; friction: 0.5; restitution: 0.5;"></a-entity>
+        <a-entity gltf-model="#asteroid" asteroid target="healthPoints: 1" hit-handler position="6 -1 -20" scale="0.5 0.5 0.5" rotation="0 0 0" physics="mass: 1; shape: box; friction: 0.5; restitution: 0.5;"></a-entity>
+        <a-entity gltf-model="#asteroid" asteroid target="healthPoints: 1" hit-handler position="0 0 -20" scale="0.5 0.5 0.5" rotation="0 0 0" physics="mass: 1; shape: box; friction: 0.5; restitution: 0.5;"></a-entity>
+        <a-entity mars-camera camera="active: true" fps-look-controls="pointerLockEnabled: false"
             raycaster="objects: .environmentGround; showLine: true; direction: 0, -1, 0; far: 5www"
-            wasd-controls="acceleration: 200" position="0 0 0">
+             wasd-controls="acceleration: 20" position="0 0 0">
             <a-entity position="-1 0 -1" shooter click-to-shoot></a-entity>
             <a-entity position="1 0 -1" shooter click-to-shoot></a-entity>
             <a-entity gltf-model="#x-wing" disable-culling position=" 0 -0.5 0">
-            </a-entity>
+            </a-entity>u
             <a-entity id="bulletTemplate" bullet="name: normal; damagePoints: 1.0; speed: 200.0; poolSize: 20"
                 geometry="primitive: sphere; radius: 0.05" rotation="90 0 0" material="color: green"
                 emissive-material="color: #00B81C">
             </a-entity>
         </a-entity>
+
         <a-sky color="black"></a-sky>
+        <a-light type="ambient" color="white"></a-light>
+        <a-light type="ambient" color="white"></a-light>
+        <a-light type="ambient" color="white"></a-light>
     </a-scene>

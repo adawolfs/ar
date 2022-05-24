@@ -3,7 +3,7 @@ AFRAME.registerComponent('asteroid',{
     
     },
     tick: function(){
-    //    this.el.setAttribute('rotation', {x: 0 , y: 0, z:  this.el.getAttribute('rotation').z + 1 });
+       this.el.setAttribute('rotation', {x: 0 , y: 0, z:  this.el.getAttribute('rotation').z + 0.1 });
     }
 })
 AFRAME.registerComponent('emissive-material', {
@@ -22,7 +22,7 @@ AFRAME.registerComponent('emissive-material', {
 
 AFRAME.registerComponent('click-to-shoot', {
     init: function () {
-        let _audio = new Audio('sounds/laser.wav');
+        let _audio = new Audio('../assets/sounds/laser.wav');
         let _busy = false;
         document.body.addEventListener('mousedown', () => {
             _audio.play();    
