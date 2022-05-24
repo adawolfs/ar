@@ -1,0 +1,449 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.8.19",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                6
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "SM_MERGED_vehicle_air_xwing_t65_cockpit_cutscene_mesh_Windo.001"
+        },
+        {
+            "mesh" : 1,
+            "name" : "SM_MERGED_vehicle_air_xwing_t65_cockpit_cutscene_mesh_Windo.002"
+        },
+        {
+            "mesh" : 2,
+            "name" : "SM_MERGED_vehicle_air_xwing_t65_cockpit_cutscene_mesh_Windo.003"
+        },
+        {
+            "children" : [
+                0,
+                1,
+                2
+            ],
+            "name" : "SM_MERGED_vehicle_air_xwing_t65_cockpit_cutscene_mesh_Window_sh"
+        },
+        {
+            "children" : [
+                3
+            ],
+            "name" : "RootNode"
+        },
+        {
+            "children" : [
+                4
+            ],
+            "name" : "ec0fdc17423a422da0039bb15ed2fb51.fbx",
+            "rotation" : [
+                1,
+                0,
+                0,
+                0
+            ],
+            "scale" : [
+                0.009999999776482582,
+                0.009999999776482582,
+                0.009999999776482582
+            ]
+        },
+        {
+            "children" : [
+                5
+            ],
+            "name" : "Sketchfab_model",
+            "rotation" : [
+                0.4985564053058624,
+                0.5014394521713257,
+                -0.4985564053058624,
+                0.5014394521713257
+            ],
+            "translation" : [
+                0.001953601837158203,
+                -0.1113365888595581,
+                0.003127675736322999
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "T_XWingCockpitScreen_01_C_Mat",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 0
+                },
+                "metallicRoughnessTexture" : {
+                    "index" : 1
+                }
+            }
+        },
+        {
+            "doubleSided" : true,
+            "name" : "T_XWingCockpit_01_CS_Mat",
+            "normalTexture" : {
+                "index" : 2
+            },
+            "occlusionTexture" : {
+                "index" : 3
+            },
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 4
+                },
+                "metallicRoughnessTexture" : {
+                    "index" : 3
+                }
+            }
+        },
+        {
+            "doubleSided" : true,
+            "emissiveFactor" : [
+                1,
+                1,
+                1
+            ],
+            "emissiveTexture" : {
+                "index" : 5
+            },
+            "name" : "T_XWingCockpit_01_emissive_Mat",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.2158609926700592,
+                    0.2158609926700592,
+                    0.2158609926700592,
+                    1
+                ],
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.9577051401138306
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "SM_MERGED_vehicle_air_xwing_t65_cockpit_cutscene_mesh_Windo",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2,
+                        "TEXCOORD_1" : 3
+                    },
+                    "indices" : 4,
+                    "material" : 0
+                }
+            ]
+        },
+        {
+            "name" : "SM_MERGED_vehicle_air_xwing_t65_cockpit_cutscene_mesh_Windo.001",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 5,
+                        "NORMAL" : 6,
+                        "TEXCOORD_0" : 7,
+                        "TEXCOORD_1" : 8,
+                        "TEXCOORD_2" : 9
+                    },
+                    "indices" : 10,
+                    "material" : 1
+                }
+            ]
+        },
+        {
+            "name" : "SM_MERGED_vehicle_air_xwing_t65_cockpit_cutscene_mesh_Windo.002",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 11,
+                        "NORMAL" : 12,
+                        "TEXCOORD_0" : 13,
+                        "TEXCOORD_1" : 14
+                    },
+                    "indices" : 15,
+                    "material" : 2
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 1
+        },
+        {
+            "sampler" : 0,
+            "source" : 2
+        },
+        {
+            "sampler" : 0,
+            "source" : 3
+        },
+        {
+            "sampler" : 0,
+            "source" : 0
+        },
+        {
+            "sampler" : 0,
+            "source" : 0
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/png",
+            "name" : "T_XWingCockpitScreen_01_C_Mat_baseColor",
+            "uri" : "T_XWingCockpitScreen_01_C_Mat_baseColor.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "T_XWingCockpitScreen_01_C_Mat_metallicRoughness",
+            "uri" : "T_XWingCockpitScreen_01_C_Mat_metallicRoughness.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "T_XWingCockpit_01_CS_Mat_normal",
+            "uri" : "T_XWingCockpit_01_CS_Mat_normal.png"
+        },
+        {
+            "mimeType" : "image/png",
+            "name" : "T_XWingCockpit_01_CS_Mat_metallicRoughness",
+            "uri" : "T_XWingCockpit_01_CS_Mat_metallicRoughness.png"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 57,
+            "max" : [
+                56.984375,
+                2.95556640625,
+                31.2255859375
+            ],
+            "min" : [
+                52.734375,
+                -3.167724609375,
+                23.30322265625
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 57,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 57,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5126,
+            "count" : 57,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5123,
+            "count" : 240,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 15118,
+            "max" : [
+                128.7109375,
+                53.759765625,
+                77.392578125
+            ],
+            "min" : [
+                -16.296875,
+                -53.759765625,
+                8.1298828125
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 15118,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5126,
+            "count" : 15118,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 8,
+            "componentType" : 5126,
+            "count" : 15118,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 9,
+            "componentType" : 5126,
+            "count" : 15118,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 10,
+            "componentType" : 5123,
+            "count" : 44343,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 11,
+            "componentType" : 5126,
+            "count" : 552,
+            "max" : [
+                60.64453125,
+                16.02783203125,
+                33.7646484375
+            ],
+            "min" : [
+                56.203125,
+                -16.1865234375,
+                28.5888671875
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 12,
+            "componentType" : 5126,
+            "count" : 552,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 13,
+            "componentType" : 5126,
+            "count" : 552,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 14,
+            "componentType" : 5126,
+            "count" : 552,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 15,
+            "componentType" : 5123,
+            "count" : 2046,
+            "type" : "SCALAR"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 684,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 684,
+            "byteOffset" : 684
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 456,
+            "byteOffset" : 1368
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 456,
+            "byteOffset" : 1824
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 480,
+            "byteOffset" : 2280
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 181416,
+            "byteOffset" : 2760
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 181416,
+            "byteOffset" : 184176
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 120944,
+            "byteOffset" : 365592
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 120944,
+            "byteOffset" : 486536
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 120944,
+            "byteOffset" : 607480
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 88686,
+            "byteOffset" : 728424
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 6624,
+            "byteOffset" : 817112
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 6624,
+            "byteOffset" : 823736
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4416,
+            "byteOffset" : 830360
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4416,
+            "byteOffset" : 834776
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4092,
+            "byteOffset" : 839192
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 843284,
+            "uri" : "scene.bin"
+        }
+    ]
+}

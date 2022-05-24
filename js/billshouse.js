@@ -22,16 +22,12 @@ AFRAME.registerComponent('disable-culling', {
          this.cameraPosition = this.camera.getAttribute('position');
         // // get camera rotation
          this.cameraRotation = this.camera.getAttribute('rotation');
-         console.log(this.cameraPosition);
-         console.log(this.cameraRotation);
   },
   tick: function () {
         // get camera position
         this.cameraPosition = this.camera.getAttribute('position');
         // get camera rotation
         this.cameraRotation = this.camera.getAttribute('rotation');
-        console.log(this.cameraPosition);
-        console.log(this.cameraRotation);
         // Camera cant lookt at the sky
         if(this.cameraRotation.x > 3.5){
             console.log("camera rotation x < -3.5")

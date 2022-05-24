@@ -1,0 +1,11 @@
+Model Information:
+* title:	X-Wing T65 Cockpit
+* source:	https://sketchfab.com/3d-models/x-wing-t65-cockpit-bbbed2d66c4e4601a91d3f109cac6968
+* author:	_Vadim2020_ (https://sketchfab.com/Maha_Knox)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "X-Wing T65 Cockpit" (https://sketchfab.com/3d-models/x-wing-t65-cockpit-bbbed2d66c4e4601a91d3f109cac6968) by _Vadim2020_ (https://sketchfab.com/Maha_Knox) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
