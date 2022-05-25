@@ -1,3 +1,12 @@
+let score = 0
+
+window.onload = function() {
+    console.log("load")
+    var backgroundSound = new Audio('assets/sounds/space-atmosfera.mp3');
+    backgroundSound.play();
+    backgroundSound.loop = true;
+}
+
 AFRAME.registerComponent('asteroid-game',{
     init: function(){
     },
@@ -57,10 +66,12 @@ AFRAME.registerComponent('emissive-material', {
 
 AFRAME.registerComponent('click-to-shoot', {
     init: function () {
-        let _audio = new Audio('assets/sounds/laser.wav');
+        let _audio = new Audio('assets/sounds/laser-1.wav');
+        _audio.volume = 0.2;
         let _busy = false;
         document.body.addEventListener('mousedown', () => {
-            // _audio.play();    
+            _audio.load()
+            _audio.play();    
             if (!_busy) {
                 this.el.emit('shoot');
             }
@@ -71,7 +82,7 @@ AFRAME.registerComponent('click-to-shoot', {
             if (_busy) {
                 return;
             }
-            _busy = true;
+            // _busy = true;
             setTimeout(() => {
                 // player.setAttribute('animation-mixer', 'clip: Fusil_IDLE')
                 _busy = false;
@@ -93,11 +104,13 @@ AFRAME.registerComponent('hit-handler', {
     init: function () {
         var color;
         var el = this.el;
+        
         console.log(`setup hit handler ${el}`)
         el.addEventListener('hit', () => {
             var scoreText = document.getElementById('score');
             console.log(scoreText)
-            scoreText.setAttribute('text','value', parseInt(scoreText.getAttribute('text')['value']) + 1);
+            scoreText.setAttribute('text', 'value', `Score: ${score++}`);
+            // scoreText.setAttribute('text','value', parseInt(scoreText.getAttribute('text')['value']) + 1);
         });
 
         el.addEventListener('die', () => {

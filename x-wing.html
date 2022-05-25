@@ -30,6 +30,7 @@
                 crossorigin="anonymous"></a-asset-item>
             <a-asset-item id="asteroid" src="assets/models/asteroid/scene.gltf" response-type="arraybuffer">
             </a-asset-item>
+            <a-asset-item id="earth" src="assets/models/earth/scene.gltf" response-type="arraybuffer"></a-asset-item>
         </a-assets>
         <a-entity id="asteroid0" gltf-model="#asteroid" asteroid target="healthPoints: 1" hit-handler
             position="-10 1 -100" scale="0.5 0.5 0.5" rotation="0 0 0"
@@ -52,24 +53,25 @@
             position="0 0 -100" scale="0.5 0.5 0.5" rotation="0 0 0"
             physics="mass: 1; shape: box; friction: 0.5; restitution: 0.5;">
         </a-entity>
+        <!-- <a-entity geometry="primitive: box; width: 1; height: 1; depth: 1" position='0 0 -50' target="healthPoints: 1" hit-handler ></a-entity> -->
         <a-box color="white" position="0 0 -5"
             mesh-particles="spawnRate:5000; radialType: sphere; radialVelocity: 1.2; radialPosition: 50; scale: .05...1;">
         </a-box>
         <a-entity mars-camera camera="active: true" fps-look-controls="pointerLockEnabled: false"
-            raycaster="objects: .environmentGround; showLine: true; direction: 0, -1, 0; far: 5www"
-            wasd-controls="acceleration: 20" position="0 0 0">
+            raycaster="objects: .environmentGround; showLine: true;  far: 5www"
+            wasd-controls="acceleration: 20" position="18 0 0" rotation="-160 0 0">
             <a-entity position="-1 0 -1" shooter click-to-shoot></a-entity>
             <a-entity position="1 0 -1" shooter click-to-shoot></a-entity>
             <a-entity gltf-model="#x-wing" disable-culling position=" 0 -0.5 0">
             </a-entity>
-            <a-entity id="score" text="value:0" position="0 0 -1"></a-entity>
+            <a-entity id="score" text="value:Score: 0" position="0 0 -1"></a-entity>
             <a-entity id="bulletTemplate" bullet="name: normal; damagePoints: 1.0; speed: 200.0; poolSize: 20"
                 geometry="primitive: sphere; radius: 0.1" rotation="90 0 0" material="color: green"
                 emissive-material="color: #00B81C">
                 <!-- <a-light type="point" distance="49" color="green"></a-light> -->
             </a-entity>
         </a-entity>
-
+        <a-entity gltf-model="#earth" position="0 0 30" scale="25 25 25"></a-entity>
         <a-sky color="black"></a-sky>
         <a-light type="ambient" color="white"></a-light>
         <a-light type="ambient" color="white"></a-light>
