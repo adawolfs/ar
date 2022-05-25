@@ -1,9 +1,44 @@
+AFRAME.registerComponent('asteroid-game',{
+    init: function(){
+    },
+    tick: (function(){
+        var _lastTime = 0;
+        return function(time, delta){
+            let scoreText = document.querySelector('#score')
+            let aframe = document.querySelector('#aframe-scene')
+            // <a-entity id="asteroid0" gltf-model="#asteroid" asteroid 
+            // target="healthPoints: 1" hit-handler
+            // position="-10 1 -20" scale="0.5 0.5 0.5" rotation="0 0 0"
+            // physics="mass: 1; shape: box; friction: 0.5; restitution: 0.5;"></a-entity>
+
+            let _asteroid = document.createElement('a-entity')
+            _asteroid.setAttribute('id', time)
+            _asteroid.setAttribute('asteroid','')
+            _asteroid.setAttribute('target','healthPoints: 1')
+            _asteroid.setAttribute('hit-handler','')
+            _asteroid.setAttribute('gltf-model','#asteroid')
+            // _asteroid.setAttribute('instanced-mesh-member', "mesh:#asteroid_mesh")
+            _asteroid.setAttribute('position',`${(Math.random() * 20) - 10} ${(Math.random() * 20) - 10} -30`)
+
+            _asteroid.scale='0.5 0.5 0.5'
+            
+            if(time - _lastTime > 2000){
+                // aframe.appendChild(_asteroid)
+                _lastTime = time
+            }
+
+            // scoreText.setAttribute('text','value', Math.round(time)/1000);
+        }
+    })()
+})
 AFRAME.registerComponent('asteroid',{
     init: function(){
     
     },
-    tick: function(){
-       this.el.setAttribute('rotation', {x: 0 , y: 0, z:  this.el.getAttribute('rotation').z + 0.1 });
+    tick: function(time, delta){
+        let _rotation = this.el.getAttribute('rotation')
+        
+        this.el.setAttribute('rotation', {x: _rotation.x  , y: _rotation.y , z: _rotation.z + 0.1});
     }
 })
 AFRAME.registerComponent('emissive-material', {
@@ -25,7 +60,7 @@ AFRAME.registerComponent('click-to-shoot', {
         let _audio = new Audio('assets/sounds/laser.wav');
         let _busy = false;
         document.body.addEventListener('mousedown', () => {
-            _audio.play();    
+            // _audio.play();    
             if (!_busy) {
                 this.el.emit('shoot');
             }
@@ -58,21 +93,26 @@ AFRAME.registerComponent('hit-handler', {
     init: function () {
         var color;
         var el = this.el;
-        color = new THREE.Color();
+        console.log(`setup hit handler ${el}`)
         el.addEventListener('hit', () => {
-            color.addScalar(0.05);
-            el.components.material.material.color.copy(color);
+            var scoreText = document.getElementById('score');
+            console.log(scoreText)
+            scoreText.setAttribute('text','value', parseInt(scoreText.getAttribute('text')['value']) + 1);
         });
 
         el.addEventListener('die', () => {
-            color.setRGB(1, 0, 0);
-            el.object3D.visible = false;
+            el.setAttribute('position',`${(Math.random() * 20) - 20} ${(Math.random() * 20) - 20} -80`)
+            
         });
     },
 
-    tick: function () {
-        let el = this.el;
-        let position = el.getAttribute('position');
-        position.z = position.z + 0.008;
-    }
+    tick: (function () {
+        return function (time, delta) {
+            if (this.el.object3D.visible) {
+                let position = this.el.getAttribute('position');
+                this.el.setAttribute('position', {x: position.x, y: position.y, z: position.z + 0.05});
+            }
+        // position.z = position.z + 0.008;
+        };
+    })()
 });
